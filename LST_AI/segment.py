@@ -2,15 +2,11 @@ import os
 import logging
 import nibabel as nib
 import numpy as np
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
-os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
 import tensorflow as tf
-tf.debugging.set_log_device_placement(True)
 from LST_AI.custom_tf import load_custom_model
 
-gpus = tf.config.experimental.list_physical_devices('GPU')
-print(gpus)
-
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
+os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
 
 def unet_segmentation(model_path, mni_t1, mni_flair, output_segmentation_path, 
                       output_prob_path, output_prob1_path, output_prob2_path, output_prob3_path, 
