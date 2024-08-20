@@ -19,7 +19,7 @@ setup(
         'pillow',
         'scipy>=1.9.0',
         'scikit-image>=0.21.0',
-        'tensorflow>=2.13,<2.16',
+        'tensorflow==2.15',
         'nibabel',
         'requests'
     ],
