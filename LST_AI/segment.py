@@ -1,6 +1,5 @@
 import os
 import logging
-logging.getLogger('tensorflow').disabled = True
 import nibabel as nib
 import numpy as np
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0'
