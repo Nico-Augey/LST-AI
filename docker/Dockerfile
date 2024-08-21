@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM tensorflow/tensorflow:2.15.0.post1-gpu
 
 # Prevents prompts from asking for user input during package installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,14 +13,14 @@ RUN apt-get update && apt-get install -y \
     curl
 
 # Install Python 3.10 without using add-apt-repository
-RUN apt-get update && apt-get install -y python3.10 python3.10-distutils
+# RUN apt-get update && apt-get install -y python3.10 python3.10-distutils
 
-# Install pip for Python 3.10
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
+# # Install pip for Python 3.10
+# RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10
 
-# Upgrade requests and create a symlink for Python
-RUN pip3 install --upgrade requests && \
-    ln -fs /usr/bin/python3.10 /usr/bin/python
+# # Upgrade requests and create a symlink for Python
+# RUN pip3 install --upgrade requests && \
+#     ln -fs /usr/bin/python3.10 /usr/bin/python
 
 # Display Python version to verify installation
 RUN python --version
