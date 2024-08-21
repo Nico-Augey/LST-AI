@@ -101,8 +101,10 @@ def unet_segmentation(model_path, mni_t1, mni_flair, output_segmentation_path,
     flair = preprocess_intensities(flair, clipping)
 
     joint_seg = np.zeros(t1.shape)
+
+    devices = tf.config.list_physical_devices()
+    print(f"List of devices : {devices}")
     print(f"Running segmentation on {tf_device}.")
-    print("test")
 
     # define list of model probability maps
     output_prob_list = [output_prob1_path, output_prob2_path, output_prob3_path]
