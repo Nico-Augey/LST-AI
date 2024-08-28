@@ -397,9 +397,6 @@ if __name__ == "__main__":
         # store the segmentations
         shutil.copy(path_orig_segmentation, os.path.join(args.output, filename_output_segmentation))
 
-        # store the segmentations individually per label
-        save_annotation_per_label(path_orig_annotated_segmentation,args.output,[1,2,3,4])
-
         # Annotation
         if not args.segment_only:
             annotate_lesions(atlas_t1=t1w_atlas,
@@ -420,6 +417,9 @@ if __name__ == "__main__":
 
             # store the segmentations
             shutil.copy(path_orig_annotated_segmentation, os.path.join(args.output, filename_output_annotated_segmentation))
+
+            # store the segmentations individually per label
+            save_annotation_per_label(path_orig_annotated_segmentation,args.output,[1,2,3,4])
 
     # Compute Stats of (annotated) segmentation if they exist
     if os.path.exists(path_orig_segmentation):
