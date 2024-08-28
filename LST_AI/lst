@@ -21,6 +21,7 @@ from LST_AI.segment import unet_segmentation
 from LST_AI.annotate import annotate_lesions
 from LST_AI.stats import compute_stats
 from LST_AI.utils import download_data
+from LST_AI.save import save_annotation_per_label
 
 if __name__ == "__main__":
 
@@ -395,6 +396,9 @@ if __name__ == "__main__":
 
         # store the segmentations
         shutil.copy(path_orig_segmentation, os.path.join(args.output, filename_output_segmentation))
+
+        # store the segmentations individually per label
+        save_annotation_per_label(path_orig_annotated_segmentation,args.output,[1,2,3,4])
 
         # Annotation
         if not args.segment_only:
