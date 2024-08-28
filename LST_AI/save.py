@@ -44,6 +44,6 @@ def save_annotation_per_label(path_nifti, path_output, lesion_labels):
         lesion_img = nib.Nifti1Image(lesion_mask, affine=annotation_img.affine, header=annotation_img.header)
         
         # Save the new NIfTI image in the output directory, with a filename that includes the label to indicate which lesion type it represents
-        nib.save(lesion_img, os.path.join(path_output, f'lesion_type_{label}.nii'))
+        nib.save(lesion_img, os.path.join(path_output, f'lesion_type_{label}.nii.gz'))
 
         print(f"Saved lesion type {label} as a separate NIfTI file.")
