@@ -6,7 +6,7 @@ import numpy as np
 import tensorflow as tf
 from LST_AI.custom_tf import load_custom_model
 
-os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
+# os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 def unet_segmentation(model_path, mni_t1, mni_flair, output_segmentation_path, 
